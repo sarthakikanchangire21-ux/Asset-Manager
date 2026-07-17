@@ -1,0 +1,96 @@
+Here is the complete Project Details Documentation (PRD) for FinBuddy AI. It breaks down everything from the high-level business logic to the deep technical specifications required to build the mobile application.
+
+🚀 FinBuddy AI — Project Specification Document
+1. Project Overview & Objectives
+
+Target Audience: Young adults (Gen Z / Millennials, ages 18–30) facing inflation, irregular incomes (freelancing/gig economy), and lack of formal financial education.  
+Core Mission: Demystify personal finance by shifting the burden from manual data entry (spreadsheets) to autonomous, AI-driven behavioral tracking.  
+Value Proposition: A privacy-first, hyper-personalized financial coach that analyzes local transaction notifications (like SMS/UPI) and generates actionable optimization plans rather than just backward-looking pie charts.  
+2. Core Feature Specifications
+
+📱 Feature Breakdown & Tech Requirements
+
+FeatureDescriptionTechnical ImplementationExpense TrackingTracks cash, card, and digital transactions automatically. Offers receipt scanning.• Local Android SMS listener / iOS notification hooks.
+
+• On-device OCR via Google ML Kit for reading physical receipts.
+Budget PlanningDynamic budgeting utilizing frameworks like the 50/30/20 rule, adapting to variable incomes.• Algorithmic forecasting built with math.js.
+
+• Local push notifications for threshold alerts (e.g., "80% of dining budget spent").
+AI Investment SuggestionsPersonalized, micro-investing and portfolio advice matching the user's risk tolerance profile.• RAG (Retrieval-Augmented Generation) engine connecting to market APIs.
+
+• Multi-agent evaluation pipeline (using models like Gemini 2.0 Flash).
+Smart Bill RemindersPredicts recurring subscriptions and fixed costs, organizing them into an interactive view.• Time-series pattern analysis on transaction logs.
+
+• OS Calendar API integrations.
+Savings Goal PlanningMulti-target milestone tracker (e.g., Emergency Fund, House Downpayment).• Dynamic gamified milestones with visual progress bars.
+
+• Automated recurring round-up calculations.
+3. System Architecture & Tech Stack
+
+FinBuddy AI utilizes a multi-layered decoupled layout designed to prioritize offline capability and extreme security.
+
+  ┌────────────────────────────────────────────────────────┐
+  │                    PRESENTATION LAYER                  │
+  │     React Native (TypeScript)  /  Tailwind CSS (NativeWind)│
+  └───────────────────────────┬────────────────────────────┘
+                              ▼
+  ┌────────────────────────────────────────────────────────┐
+  │                  LOCAL BUSINESS LOGIC                  │
+  │   Zustand (Global State)   /   WatermelonDB (Offline First)│
+  └───────────────────────────┬────────────────────────────┘
+                              ▼
+  ┌────────────────────────────────────────────────────────┐
+  │                   AI & BACKEND ENGINE                  │
+  │     Supabase Edge Functions   /   Gemini API (NLP Analysis)│
+  └────────────────────────────────────────────────────────┘
+The Tech Stack Selection
+
+Frontend: React Native (TypeScript) + NativeWind (Tailwind CSS for mobile).  
+Local Database: WatermelonDB or SQLite for secure, highly responsive offline storage.
+Backend Backend-as-a-Service (BaaS): Supabase (PostgreSQL, Realtime, Secure Auth).  
+AI Engine: Dedicated AI agents utilizing the Gemini API to handle parsing, intent classification, and automated categorization.  
+4. AI Engine Architecture (Multi-Agent System)
+
+Instead of relying on a single complex prompt, the application splits the analytical work across distinct internal AI instances:  
+
+                     ┌───────────────────┐
+                     │ Transaction Input │
+                     └─────────┬─────────┘
+                               │
+                               ▼
+                ┌─────────────────────────────┐
+                │   Categorization Agent      │ <--- Parses & tags context
+                └──────────────┬──────────────┘
+                               │
+                               ▼
+                ┌─────────────────────────────┐
+                │    Anomaly Detection Agent  │ <--- Flags unexpected spikes
+                └──────────────┬──────────────┘
+                               │
+                               ▼
+                ┌─────────────────────────────┐
+                │     Advisory Coach Agent    │ <--- Emits micro-advice text
+                └─────────────────────────────┘
+5. Security & Privacy Blueprint
+
+Because this application manages sensitive financial data, strict compliance protocols are mandated from day one:  
+
+Data Isolation: All personal raw transaction data is parsed and stored completely locally on-device. Only anonymized vector representations or specific summaries are securely transmitted for AI synthesis.  
+Authentication: Biometric verification (FaceID / Fingerprint) is required on every application launch, combined with secure JWT key handling via device keychains.
+Transit Protection: Zero plain-text communication. Full end-to-end AES-256 encryption covers all outgoing synchronization endpoints.
+6. Development Roadmap
+
+Foundation & Scoping
+Weeks 1–3
+Establish the main React Native project wrapper, configure TypeScript rules, set up local storage encryptions, and finish interface wireframes.
+Core Bookkeeping Features
+Weeks 4–7
+Deploy manual transaction loggers, build out the local parsing rules engine, and construct the basic 50/30/20 budget calculating views.
+AI Layer Integration
+Weeks 8–11
+Incorporate the Gemini API multi-agent pipeline, implement the OCR receipt scanning engine, and configure backend edge handlers.
+Hardening & Release
+Weeks 12–14
+Conduct thorough load testing, run multi-device UI optimization checks, fix edge errors, and submit v1.0.0 builds to the App Store and Google Play.
+
+give me the file structure for developing AI integrated mobile application using following languages
