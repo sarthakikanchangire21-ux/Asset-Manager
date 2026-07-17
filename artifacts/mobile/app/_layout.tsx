@@ -11,17 +11,33 @@ import {
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { Stack } from 'expo-router';
+import { Slot, Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { FinanceProvider } from '@/context/FinanceContext';
+import { AuthProvider, useAuth } from '@/context/AuthContext';
 
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
 
-function RootLayoutNav() {
+function AuthGate() {
+  const { user, isLoaded } = useAuth();
+  const router = useRouter();
+  const segments = useSegments();
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    const inAuth = segments[0] === 'login';
+    if (!user && !inAuth) {
+      router.replace('/login');
+    } else if (user && inAuth) {
+      router.replace('/(tabs)');
+    }
+  }, [user, isLoaded, segments]);
+
   return (
     <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="login" options={{ headerShown: false, animation: 'fade' }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
         name="add-transaction"
@@ -57,9 +73,11 @@ export default function RootLayout() {
         <QueryClientProvider client={queryClient}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <KeyboardProvider>
-              <FinanceProvider>
-                <RootLayoutNav />
-              </FinanceProvider>
+              <AuthProvider>
+                <FinanceProvider>
+                  <AuthGate />
+                </FinanceProvider>
+              </AuthProvider>
             </KeyboardProvider>
           </GestureHandlerRootView>
         </QueryClientProvider>

@@ -13,6 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { useColors } from '@/hooks/useColors';
 import { useFinance } from '@/context/FinanceContext';
+import { useAuth } from '@/context/AuthContext';
 
 interface SettingRowProps {
   label: string;
@@ -59,6 +60,7 @@ export default function ProfileScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
   const { profile, updateProfile, transactions, budgets, clearAllData } = useFinance();
+  const { user, logout } = useAuth();
 
   const [name, setName] = useState(profile.name);
   const [income, setIncome] = useState(
@@ -94,6 +96,13 @@ export default function ProfileScreen() {
         { text: 'Clear Everything', style: 'destructive', onPress: clearAllData },
       ],
     );
+  };
+
+  const handleLogout = () => {
+    Alert.alert('Sign Out', 'Are you sure you want to sign out?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Sign Out', style: 'destructive', onPress: logout },
+    ]);
   };
 
   const topInsets = Platform.OS === 'web' ? 67 : insets.top;
@@ -192,6 +201,19 @@ export default function ProfileScreen() {
           <Text style={[styles.infoLabel, { color: colors.mutedForeground }]}>Storage</Text>
           <Text style={[styles.infoVal, { color: colors.foreground }]}>On-device (encrypted)</Text>
         </View>
+      </View>
+
+      {/* Account */}
+      <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
+        <Text style={[styles.cardTitle, { color: colors.foreground }]}>Account</Text>
+        <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
+          <Text style={[styles.infoLabel, { color: colors.mutedForeground }]}>Signed in as</Text>
+          <Text style={[styles.infoVal, { color: colors.foreground }]} numberOfLines={1}>{user?.email}</Text>
+        </View>
+        <Pressable style={styles.infoRow} onPress={handleLogout}>
+          <Feather name="log-out" size={16} color={colors.destructive} />
+          <Text style={[styles.infoLabel, { color: colors.destructive, marginLeft: 8 }]}>Sign Out</Text>
+        </Pressable>
       </View>
 
       {/* Danger zone */}
