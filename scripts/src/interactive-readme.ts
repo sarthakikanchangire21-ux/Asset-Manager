@@ -48,12 +48,12 @@ function clearScreen() {
 
 function printBanner() {
   console.log(`${COLORS.fg.cyan}${COLORS.bright}`);
-  console.log('███████╗██╗███╗   ██╗██████╗ ██╗   ██╗██████╗ ██████╗ ██╗   ██╗     █████╗ ██╗');
-  console.log('██╔════╝██║████╗  ██║██╔══██╗██║   ██║██╔══██╗██╔══██╗╚██╗ ██╔╝    ██╔══██╗██║');
-  console.log('█████╗  ██║██╔██╗ ██║██████╔╝██║   ██║██║  ██║██║  ██║ ╚████╔╝     ███████║██║');
-  console.log('██╔══╝  ██║██║╚██╗██║██╔══██╗██║   ██║██║  ██║██║  ██║  ╚██╔╝      ██╔══██║██║');
-  console.log('██║     ██║██║ ╚████║██████╔╝╚██████╔╝██████╔╝██████╔╝   ██║       ██║  ██║██║');
-  console.log('╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═════╝ ╚═════╝    ╚═╝       ╚═╝  ╚═╝╚═╝');
+  console.log('██████╗ ███████╗███████╗██╗   ██╗███╗   ███╗███████╗ █████╗ ██╗');
+  console.log('██╔══██╗██╔════╝██╔════╝██║   ██║████╗ ████║██╔════╝██╔══██╗██║');
+  console.log('██████╔╝█████╗  ███████╗██║   ██║██╔████╔██║█████╗  ███████║██║');
+  console.log('██╔══██╗██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝  ██╔══██║██║');
+  console.log('██║  ██║███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗██║  ██║██║');
+  console.log('╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝');
   console.log(`${COLORS.reset}`);
   console.log(`${COLORS.fg.yellow}=== Interactive Workspace Explorer & Control Center ===${COLORS.reset}\n`);
 }
@@ -91,13 +91,13 @@ function runCommand(command: string): Promise<void> {
 async function showOverview() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Project Overview & Product Vision ===${COLORS.reset}\n`);
-  console.log(`${COLORS.bright}FinBuddy AI${COLORS.reset} is an advanced personal finance management application with AI-powered insights.`);
-  console.log('It empowers users to track expenses, establish and manage realistic budgets, analyze historical spending, and receive real-time guidance from an AI advisor.\n');
+  console.log(`${COLORS.bright}AI Resume Analyzer${COLORS.reset} is an advanced, comprehensive resume optimization application with AI-powered insights.`);
+  console.log('It empowers users to analyze resume formatting and content, calculate ATS compatibility scores, conduct job matching gap analyses, and receive tailored resume recommendations.\n');
   console.log(`${COLORS.fg.magenta}${COLORS.bright}Core Value Propositions:${COLORS.reset}`);
-  console.log(` - ${COLORS.bright}Intelligent Expense Classification:${COLORS.reset} Automatic tagging of transactions powered by OpenAI.`);
-  console.log(` - ${COLORS.bright}Smart Budget Adjustments:${COLORS.reset} Dynamic budget recommendations reflecting individual historical spending.`);
-  console.log(` - ${COLORS.bright}AI Financial Assistant:${COLORS.reset} Interactive chat companion to answering querying regarding budget limits and insights.`);
-  console.log(` - ${COLORS.bright}Anomaly & Pattern Recognition:${COLORS.reset} Automated spending detection algorithms identifying unexpected expenses.\n`);
+  console.log(` - ${COLORS.bright}ATS & Resume Scoring:${COLORS.reset} Real-time, detailed score check to help get resumes shortlisted faster.`);
+  console.log(` - ${COLORS.bright}Tailored AI Suggestions:${COLORS.reset} Personalized recommendations to enhance bullet points and highlight professional achievements.`);
+  console.log(` - ${COLORS.bright}Job Description Matching:${COLORS.reset} Instantly compare resume keywords against job post requirements.`);
+  console.log(` - ${COLORS.bright}Skill Gap Analysis:${COLORS.reset} Identify missing key skills compared to industry benchmarks and outline career paths.\n`);
   await waitForKey();
 }
 
@@ -227,7 +227,7 @@ async function mainMenu() {
         await showCommandRunner();
         break;
       case '6':
-        console.log(`\n${COLORS.fg.yellow}Thank you for exploring FinBuddy AI! Have a great hacking session! 🚀${COLORS.reset}\n`);
+        console.log(`\n${COLORS.fg.yellow}Thank you for exploring AI Resume Analyzer! Have a great hacking session! 🚀${COLORS.reset}\n`);
         rl.close();
         process.exit(0);
       default:
