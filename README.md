@@ -1,6 +1,6 @@
-# FinBuddy AI - Asset Manager
+# AI Resume Analyzer (ResumeAI)
 
-FinBuddy AI is a smart, interactive personal finance management system designed to make tracking transactions, organizing budgets, and analyzing spending patterns extremely fast and engaging. With integrated AI-driven insights, FinBuddy acts as a virtual financial advisor that suggests optimal budgets and points out spend anomalies.
+AI Resume Analyzer is an intelligent, interactive personal career development system designed to optimize resumes, identify key industry skill gaps, match jobs dynamically, and suggest actionable revisions. With integrated AI-driven insights, ResumeAI acts as an advanced career coach guiding candidates toward higher interview callbacks and successful applications.
 
 ---
 
@@ -15,7 +15,7 @@ pnpm readme
 ```
 
 ### What you can do inside the Interactive Center:
-1. **Browse Project Overview & Vision**: Understand the core objectives and features of FinBuddy AI.
+1. **Browse Project Overview & Vision**: Understand the core objectives and features of AI Resume Analyzer.
 2. **Explore the Technical Stack**: Detailed views of the technologies (React, Expo, Express, PostgreSQL, Drizzle ORM, OpenAPI, Zod).
 3. **Inspect the Workspace Architecture**: Get a complete map of the workspaces (`lib/`, `artifacts/`, etc.) and the development flow.
 4. **Learn Dev Gotchas**: Crucial warnings about auto-generated specifications and database sync commands.

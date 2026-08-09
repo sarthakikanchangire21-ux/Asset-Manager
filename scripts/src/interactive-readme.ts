@@ -1,7 +1,5 @@
 import * as readline from 'readline';
 import { exec } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
 
 // Color definitions for terminal output
 const COLORS = {
@@ -48,14 +46,14 @@ function clearScreen() {
 
 function printBanner() {
   console.log(`${COLORS.fg.cyan}${COLORS.bright}`);
-  console.log('███████╗██╗███╗   ██╗██████╗ ██╗   ██╗██████╗ ██████╗ ██╗   ██╗     █████╗ ██╗');
-  console.log('██╔════╝██║████╗  ██║██╔══██╗██║   ██║██╔══██╗██╔══██╗╚██╗ ██╔╝    ██╔══██╗██║');
-  console.log('█████╗  ██║██╔██╗ ██║██████╔╝██║   ██║██║  ██║██║  ██║ ╚████╔╝     ███████║██║');
-  console.log('██╔══╝  ██║██║╚██╗██║██╔══██╗██║   ██║██║  ██║██║  ██║  ╚██╔╝      ██╔══██║██║');
-  console.log('██║     ██║██║ ╚████║██████╔╝╚██████╔╝██████╔╝██████╔╝   ██║       ██║  ██║██║');
-  console.log('╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═════╝ ╚═════╝    ╚═╝       ╚═╝  ╚═╝╚═╝');
+  console.log('██████╗ ███████╗███████╗██╗   ██╗███╗   ███╗███████╗     █████╗ ██╗');
+  console.log('██╔══██╗██╔════╝██╔════╝██║   ██║████╗ ./███║██╔════╝    ██╔══██╗██║');
+  console.log('██████╔╝█████╗  ███████╗██║   ██║██╔████╔██║█████╗      ███████║██║');
+  console.log('██╔══██╗██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝      ██╔══██║██║');
+  console.log('██║  ██║███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗    ██║  ██║██║');
+  console.log('╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝');
   console.log(`${COLORS.reset}`);
-  console.log(`${COLORS.fg.yellow}=== Interactive Workspace Explorer & Control Center ===${COLORS.reset}\n`);
+  console.log(`${COLORS.fg.yellow}=== AI Resume Analyzer — Explorer & Control Center ===${COLORS.reset}\n`);
 }
 
 function waitForKey(message = 'Press ENTER to return to the main menu...') {
@@ -91,34 +89,37 @@ function runCommand(command: string): Promise<void> {
 async function showOverview() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Project Overview & Product Vision ===${COLORS.reset}\n`);
-  console.log(`${COLORS.bright}FinBuddy AI${COLORS.reset} is an advanced personal finance management application with AI-powered insights.`);
-  console.log('It empowers users to track expenses, establish and manage realistic budgets, analyze historical spending, and receive real-time guidance from an AI advisor.\n');
+  console.log(`${COLORS.bright}AI Resume Analyzer (ResumeAI)${COLORS.reset} is an intelligent resume optimizer and career preparation suite.`);
+  console.log('It empowers job seekers to upload resumes, get comprehensive ATS compatibility scores, pinpoint skill gaps, match jobs dynamically, and leverage AI to re-write weak sections.\n');
   console.log(`${COLORS.fg.magenta}${COLORS.bright}Core Value Propositions:${COLORS.reset}`);
-  console.log(` - ${COLORS.bright}Intelligent Expense Classification:${COLORS.reset} Automatic tagging of transactions powered by OpenAI.`);
-  console.log(` - ${COLORS.bright}Smart Budget Adjustments:${COLORS.reset} Dynamic budget recommendations reflecting individual historical spending.`);
-  console.log(` - ${COLORS.bright}AI Financial Assistant:${COLORS.reset} Interactive chat companion to answering querying regarding budget limits and insights.`);
-  console.log(` - ${COLORS.bright}Anomaly & Pattern Recognition:${COLORS.reset} Automated spending detection algorithms identifying unexpected expenses.\n`);
+  console.log(` - ${COLORS.bright}ATS & Resume Score Analysis:${COLORS.reset} Evaluates resume formatting, vocabulary, formatting, and structural quality against common applicant tracking systems.`);
+  console.log(` - ${COLORS.bright}Dynamic Job Matching & Skill Gap Analysis:${COLORS.reset} Paste a target job description to verify keyword compliance and receive recommended steps to close skill gaps.`);
+  console.log(` - ${COLORS.bright}AI Resume Rewrite Assistant:${COLORS.reset} Revamps summary points and weak descriptions with active verbs, impact metrics, and highly tailored phrasing.`);
+  console.log(` - ${COLORS.bright}Comprehensive Career Dashboard:${COLORS.reset} Multi-page interface tracking analysis history, matching statistics, and document revisions.\n`);
   await waitForKey();
 }
 
 async function showTechStack() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Technical Stack Overview ===${COLORS.reset}\n`);
-  console.log(`${COLORS.fg.yellow}${COLORS.bright}Frontend Structure:${COLORS.reset}`);
-  console.log(' - React 18 / 19 with TypeScript');
-  console.log(' - Tailwind CSS for styling');
-  console.log(' - Responsive layouts with robust modern layout designs (Expo / Mobile & React Components)');
-  console.log(' - API integration client auto-generated with Orval (Zod & React Query)\n');
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}Web Client Layout (mockup-sandbox):${COLORS.reset}`);
+  console.log(' - Modern responsive single-page layouts (built with HTML5, Tailwind-styled variables, and CSS components)');
+  console.log(' - Structured dynamic interaction scripts in vanilla JS (`js/app.js`, `js/navigation.js`, `js/animation.js`, `js/storage.js`)');
+  console.log(' - Responsive layouts using grid layouts, transition presets, and beautiful dark/light themes\n');
 
-  console.log(`${COLORS.fg.yellow}${COLORS.bright}Backend Architecture:${COLORS.reset}`);
-  console.log(' - Express 5 (TypeScript) for routing and middleware server API orchestration');
-  console.log(' - PostgreSQL as core relational storage system');
-  console.log(' - Drizzle ORM for declarative database schema and type-safe query management');
-  console.log(' - Zod schema validation libraries on both client and server boundaries\n');
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}Mobile Client Architecture (artifacts/mobile):${COLORS.reset}`);
+  console.log(' - Built using Expo, React Native, and TypeScript 5.9');
+  console.log(' - Native Navigation (Expo Router) for clean tab navigation between Home, Transactions, Budgets, AI, and Profile');
+  console.log(' - Reusable customized components: BudgetCard, StatCard, DonutChart, CategoryIcon, and TransactionItem\n');
 
-  console.log(`${COLORS.fg.yellow}${COLORS.bright}AI Services & Tools:${COLORS.reset}`);
-  console.log(' - OpenAI ChatGPT GPT-3.5 & GPT-4 models integrated seamlessly');
-  console.log(' - Semantic classification & automated insights algorithms');
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}Backend & API Services:${COLORS.reset}`);
+  console.log(' - API backend written with Express 5 (TypeScript) for routing, logging middleware, and controller handling');
+  console.log(' - PostgreSQL for secure data tracking, utilizing Drizzle ORM for type-safe query management and database push operations');
+  console.log(' - API contract specification managed globally using OpenAPI YAML and schema binding validation via Zod libraries\n');
+
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}AI Integrations & Services:${COLORS.reset}`);
+  console.log(' - High-performance models (such as GPT-3.5 and GPT-4) integrated via OpenAI SDK');
+  console.log(' - Intelligent matching algorithms, automated classification, and semantic analytics models');
   await waitForKey();
 }
 
@@ -126,28 +127,28 @@ async function showArchitecture() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Architecture Decisions & Repository Map ===${COLORS.reset}\n`);
   console.log(`${COLORS.fg.yellow}${COLORS.bright}Monorepo Workspaces Layout:${COLORS.reset}`);
-  console.log(` - ${COLORS.bright}lib/api-spec:${COLORS.reset} Single source of truth containing \`openapi.yaml\` and Orval configuration`);
-  console.log(` - ${COLORS.bright}lib/api-zod:${COLORS.reset} Auto-generated TypeScript Zod validation schemas matching openapi spec`);
-  console.log(` - ${COLORS.bright}lib/api-client-react:${COLORS.reset} Auto-generated react hooks (React Query + Fetchers) from openapi spec`);
-  console.log(` - ${COLORS.bright}lib/db:${COLORS.reset} Core database connection, migrations and schemas declaring PostgreSQL structures`);
-  console.log(` - ${COLORS.bright}artifacts/api-server:${COLORS.reset} API backend Express application offering robust REST handlers`);
-  console.log(` - ${COLORS.bright}artifacts/mobile:${COLORS.reset} Expo & React Native mobile client codebase`);
-  console.log(` - ${COLORS.bright}artifacts/mockup-sandbox:${COLORS.reset} Rapid browser-based sandbox UI for previewing layouts\n`);
+  console.log(` - ${COLORS.bright}lib/api-spec:${COLORS.reset} Global OpenAPI specifications (\`openapi.yaml\`) and configuration setups`);
+  console.log(` - ${COLORS.bright}lib/api-zod:${COLORS.reset} Auto-generated TypeScript Zod schemas mapping directly from openapi spec`);
+  console.log(` - ${COLORS.bright}lib/api-client-react:${COLORS.reset} Unified react fetch hooks generated natively from the specification`);
+  console.log(` - ${COLORS.bright}lib/db:${COLORS.reset} Core database connection schemas, tables, and migrations using Drizzle ORM`);
+  console.log(` - ${COLORS.bright}artifacts/api-server:${COLORS.reset} Backend High-Performance Express 5 API Application`);
+  console.log(` - ${COLORS.bright}artifacts/mobile:${COLORS.reset} Interactive Expo & React Native mobile client workspace`);
+  console.log(` - ${COLORS.bright}artifacts/mockup-sandbox:${COLORS.reset} Browser-based sandboxed interface offering swift component previews\n`);
 
   console.log(`${COLORS.fg.yellow}${COLORS.bright}Design Philosophy:${COLORS.reset}`);
-  console.log(' 1. Define API specs globally first in OpenAPI.');
-  console.log(' 2. Regenerate TypeScript structures (Zod + hooks) to avoid manual drifting.');
-  console.log(' 3. Consume auto-generated logic in both mobile, mockup, and server projects.');
+  console.log(' 1. Specify contracts upfront using OpenAPI definitions.');
+  console.log(' 2. Auto-generate schemas and network binders to avoid drift across micro-packages.');
+  console.log(' 3. Focus on offline-ready patterns with modular presentation structures.');
   await waitForKey();
 }
 
 async function showGotchas() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Repository Gotchas & Developer Notes ===${COLORS.reset}\n`);
-  console.log(` 1. ${COLORS.bright}Auto-Generated Code:${COLORS.reset} Never modify files inside folders named \`generated\` directly. Update the OpenAPI spec in \`lib/api-spec/openapi.yaml\` instead, then run \`pnpm --filter @workspace/api-spec run codegen\`.`);
-  console.log(` 2. ${COLORS.bright}Database Changes:${COLORS.reset} After updating Drizzle models in \`lib/db\`, always run \`pnpm --filter @workspace/db run push\` to sync database structures with local environment.`);
-  console.log(` 3. ${COLORS.bright}Package Installation:${COLORS.reset} We enforce \`pnpm\` usage in this workspace. Installing packages via npm or yarn will trigger preinstall failures to ensure lockfile sanity.`);
-  console.log(` 4. ${COLORS.bright}Environment Variables:${COLORS.reset} \`DATABASE_URL\` is strictly required. For AI integrations, specify \`OPENAI_API_KEY\` to allow models to respond correctly.`);
+  console.log(` 1. ${COLORS.bright}Generated Artifacts:${COLORS.reset} Do not modify any \`generated\` folders manually. Always run codegen triggers from \`lib/api-spec\` to update API properties safely.`);
+  console.log(` 2. ${COLORS.bright}Database Schemas:${COLORS.reset} After updating ORM definitions under \`lib/db\`, use \`pnpm --filter @workspace/db run push\` to sync the structures directly to PostgreSQL.`);
+  console.log(` 3. ${COLORS.bright}Package Management:${COLORS.reset} This monorepo enforces \`pnpm\` usage strictly. Avoid running standard npm/yarn installs, as they are blocked by checks.`);
+  console.log(` 4. ${COLORS.bright}Configuring Credentials:${COLORS.reset} Verify that \`DATABASE_URL\` is declared correctly in your environmental scope. For full AI functions, specify your \`OPENAI_API_KEY\`.`);
   await waitForKey();
 }
 
@@ -227,7 +228,7 @@ async function mainMenu() {
         await showCommandRunner();
         break;
       case '6':
-        console.log(`\n${COLORS.fg.yellow}Thank you for exploring FinBuddy AI! Have a great hacking session! 🚀${COLORS.reset}\n`);
+        console.log(`\n${COLORS.fg.yellow}Thank you for exploring AI Resume Analyzer! Have an amazing hacking session! 🚀${COLORS.reset}\n`);
         rl.close();
         process.exit(0);
       default:
