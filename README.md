@@ -1,6 +1,6 @@
-# FinBuddy AI - Asset Manager
+# AI Resume Analyzer
 
-FinBuddy AI is a smart, interactive personal finance management system designed to make tracking transactions, organizing budgets, and analyzing spending patterns extremely fast and engaging. With integrated AI-driven insights, FinBuddy acts as a virtual financial advisor that suggests optimal budgets and points out spend anomalies.
+AI Resume Analyzer is a comprehensive, smart, and interactive platform designed to help job seekers optimize their resumes, pass applicant tracking systems (ATS), and land their dream jobs. By analyzing formatting, experience quality, and skills relevance, it provides actionable, data-driven suggestions to boost your resume's impact.
 
 ---
 
@@ -15,7 +15,7 @@ pnpm readme
 ```
 
 ### What you can do inside the Interactive Center:
-1. **Browse Project Overview & Vision**: Understand the core objectives and features of FinBuddy AI.
+1. **Browse Project Overview & Vision**: Understand the core objectives and features of the AI Resume Analyzer.
 2. **Explore the Technical Stack**: Detailed views of the technologies (React, Expo, Express, PostgreSQL, Drizzle ORM, OpenAPI, Zod).
 3. **Inspect the Workspace Architecture**: Get a complete map of the workspaces (`lib/`, `artifacts/`, etc.) and the development flow.
 4. **Learn Dev Gotchas**: Crucial warnings about auto-generated specifications and database sync commands.
@@ -23,7 +23,18 @@ pnpm readme
 
 ---
 
-## 🛠️ Stack and workspaces
+## ✨ Core Features
+
+- **ATS Score Check**: Instantly evaluate how well your resume passes through Applicant Tracking Systems (ATS) with detailed compatibility and formatting analysis.
+- **Comprehensive Resume Score**: Get a 0–100 score covering formatting, experience quality, skills relevance, and education.
+- **Tailored AI Suggestions**: Receive personalized, actionable recommendations to improve bullet points and highlight measurable achievements.
+- **Job Description Matching**: Paste any job description to instantly see how well your resume aligns with the required keywords and skills.
+- **Skill Gap Analysis**: Identify missing key skills compared to industry benchmarks and discover curated pathways to close the gap.
+- **AI-Powered Resume Rewrite**: Rewrite your summary, experience bullets, and skills section with ATS-friendly, impactful language.
+
+---
+
+## 🛠️ Stack and Workspaces
 
 This repository is powered by a modern multi-workspace monorepo architecture:
 

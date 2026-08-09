@@ -1,6 +1,6 @@
-# [Project name]
+# AI Resume Analyzer
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An AI-powered web and mobile application that analyzes resumes, calculates ATS scores, highlights skill gaps, matches with job descriptions, and provides suggestions to optimize job search success.
 
 ## Run & Operate
 
@@ -14,6 +14,7 @@ _Replace the heading above with the project's name, and this line with one sente
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: Expo/React Native & React components mockup sandbox
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
@@ -22,24 +23,29 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/mobile` — Expo-based mobile client application.
+- `artifacts/mockup-sandbox` — Vite-based UI workspace mockup testing.
+- `artifacts/api-server` — Express 5 REST API backend.
+- `lib/api-spec` — OpenAPI specs containing `openapi.yaml` and Orval config.
+- `lib/api-zod` — Generated zod validation schemas.
+- `lib/api-client-react` — React hooks generated directly from API schemas.
+- `lib/db` — Drizzle schema models, migrations, and PostgreSQL client setup.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- **OpenAPI/Specs-First Development**: Design endpoints in `lib/api-spec/openapi.yaml` and generate TypeScript client bindings to guarantee sync across the boundaries.
+- **Unified Schema Validation**: Keep single schema validation source of truth using `lib/api-zod` validation schemas matching OpenAPI specs.
+- **Type-safe Database Queries**: Drizzle ORM ensures compile-time check for database access across services.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- **Resume Upload & Parsing**: Parse DOCX and PDF resume files.
+- **ATS and Resume Scoring**: Real-time evaluation scoring of resumes.
+- **Job Description Match**: Gap analysis and match score based on target JD.
+- **AI Improvements**: Dynamic rephrasing recommendations.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- **Do not edit generated folders**: Avoid modifying items under `generated/` folders. Run `pnpm --filter @workspace/api-spec run codegen` instead.
+- **Database synchronization**: Always run `pnpm --filter @workspace/db run push` when changing schemas to sync local database.
+- **Use pnpm**: Preinstall scripts enforce the use of `pnpm` exclusively.
