@@ -41,25 +41,32 @@ pnpm readme
 
 ```
 .
-├── 📁 artifacts/
+├── 📁 artifacts/              # Monorepo application artifacts & clients
 │   ├── 📁 api-server/         # High-performance Express 5 API Server (TypeScript)
 │   ├── 📁 mobile/             # Expo & React Native cross-platform mobile client
 │   └── 📁 mockup-sandbox/     # Vite + React component preview & sandbox environment
 │
-├── 📁 lib/
+├── 📁 attached_assets/        # Project specifications & PRD reference assets
+│   ├── 📁 generated_images/   # Project logos & UI visual assets
+│   ├── 📄 DesignPRD_*.md      # UI/UX design requirements spec
+│   ├── 📄 ProjectPRD_*.md     # Detailed product requirements document
+│   └── 📄 TechStackPRD_*.md   # Technical architecture specification
+│
+├── 📁 docs/                   # Structured Project Documentation
+│   ├── 📄 DESIGN.md           # UI/UX & Design Guidelines
+│   ├── 📄 PRD.md              # Product Requirements Document
+│   └── 📄 TECH_STACK.md       # Technical Stack & Architecture Specification
+│
+├── 📁 lib/                    # Shared Monorepo Packages & Core Libraries
 │   ├── 📁 api-client-react/   # TanStack React Query hooks auto-generated via Orval
 │   ├── 📁 api-spec/           # Central OpenAPI 3.1 contract spec (openapi.yaml)
 │   ├── 📁 api-zod/            # Auto-generated Zod runtime validation schemas
 │   └── 📁 db/                 # PostgreSQL declarations & Drizzle ORM schema definitions
 │
-├── 📁 docs/                   # Structured Project Documentation
-│   ├── 📄 PRD.md              # Product Requirements Document
-│   ├── 📄 TECH_STACK.md       # Technical Stack & Architecture Specification
-│   └── 📄 DESIGN.md           # UI/UX & Design Guidelines
-│
 ├── 📁 scripts/                # Terminal Utilities & Interactive CLI Control Center
-│   └── 📁 src/
-│       └── 📄 interactive-readme.ts
+│   ├── 📁 src/                # Interactive README & CLI script sources
+│   ├── 📄 package.json        # Workspace package config for scripts
+│   └── 📄 post-merge.sh       # Git hook script for post-merge actions
 │
 ├── 📄 package.json            # Root monorepo workspace configuration
 ├── 📄 pnpm-workspace.yaml     # pnpm workspace package declarations
@@ -95,8 +102,8 @@ pnpm readme
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/sarthakikanchangire21-ux/Demo-Project.git
-   cd Demo-Project
+   git clone https://github.com/sarthakikanchangire21-ux/AI-Resume-Analyzer.git
+   cd AI-Resume-Analyzer
    ```
 
 2. **Install Dependencies**:
