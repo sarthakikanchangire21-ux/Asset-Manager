@@ -117,6 +117,8 @@ pnpm readme
    DATABASE_URL="postgres://user:password@localhost:5432/resume_ai"
    OPENAI_API_KEY="your-openai-api-key"
    PORT=5000
+   BASE_PATH="/"
+   EXPO_PUBLIC_DOMAIN="localhost"
    ```
 
 ---
@@ -129,7 +131,7 @@ Run these scripts from the repository root:
 | ------- | ----------- |
 | `pnpm readme` | Launches the interactive terminal documentation & command runner. |
 | `pnpm run typecheck` | Performs strict TypeScript checks across all workspace packages and shared libraries. |
-| `pnpm run build` | Builds all monorepo packages for production deployment. |
+| `PORT=5000 BASE_PATH=/ EXPO_PUBLIC_DOMAIN=localhost pnpm run build` | Builds all monorepo packages for production deployment. |
 | `pnpm --filter @workspace/api-server run dev` | Starts the Express API server in development mode (Port 5000). |
 | `pnpm --filter @workspace/api-spec run codegen` | Regenerates Zod schemas and React fetch hooks from `openapi.yaml`. |
 | `pnpm --filter @workspace/db run push` | Synchronizes Drizzle ORM schema changes directly with PostgreSQL. |
