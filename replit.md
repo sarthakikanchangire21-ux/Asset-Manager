@@ -1,45 +1,44 @@
-# [Project name]
+# AI Resume Analyzer (ResumeAI)
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+AI Resume Analyzer is an intelligent, contract-driven monorepo application for resume optimization, ATS scoring, skill gap identification, and AI-powered career coaching.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm readme` — Launch the terminal-based interactive documentation & command runner
+- `pnpm --filter @workspace/api-server run dev` — Run the Express API server (port 5000)
+- `pnpm run typecheck` — Strict typecheck across all workspace packages and libraries
+- `pnpm run build` — Build all packages across the monorepo
+- `pnpm --filter @workspace/api-spec run codegen` — Regenerate API hooks and Zod schemas from the OpenAPI spec (`openapi.yaml`)
+- `pnpm --filter @workspace/db run push` — Push Drizzle DB schema changes to PostgreSQL
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- **Monorepo & Tooling**: pnpm workspaces, Node.js 24, TypeScript 5.9
+- **API Server**: Express 5 (TypeScript)
+- **Database**: PostgreSQL + Drizzle ORM
+- **Validation & Codegen**: Zod (`zod/v4`), `drizzle-zod`, Orval (from `openapi.yaml`)
+- **Web & Mobile Clients**: Vite + React, Expo + React Native
 
-## Where things live
+## Workspace Map
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/api-server` — Express 5 API server
+- `artifacts/mobile` — Expo & React Native mobile client
+- `artifacts/mockup-sandbox` — Vite & React component preview environment
+- `lib/api-spec` — OpenAPI 3.1 contract specification (`openapi.yaml`)
+- `lib/api-zod` — Generated Zod validation schemas
+- `lib/api-client-react` — Generated React Query client hooks
+- `lib/db` — Drizzle ORM PostgreSQL schema
+- `docs/` — Project PRD, Tech Stack, and Design documentation
+- `scripts/` — Terminal utility scripts (`pnpm readme`)
 
-## Architecture decisions
+## Environment Setup
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- `DATABASE_URL` — PostgreSQL connection string (required)
+- `OPENAI_API_KEY` — OpenAI API key for AI features (optional)
+- `PORT` — Server port (default: 5000)
 
-## Product
+## Developer Gotchas
 
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+1. **Codegen Artifacts**: Never modify files inside `generated` folders directly. Modify `lib/api-spec/openapi.yaml` and run `pnpm --filter @workspace/api-spec run codegen`.
+2. **Database Sync**: Always run `pnpm --filter @workspace/db run push` after modifying Drizzle schemas in `lib/db/src/schema/`.
+3. **Package Manager**: Use `pnpm` exclusively across all workspace operations.
