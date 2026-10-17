@@ -8,6 +8,8 @@
 
 An intelligent, full-stack, contract-driven personal career development and resume optimization platform. Built as a high-performance monorepo, **ResumeAI** delivers real-time Applicant Tracking System (ATS) scoring, dynamic skill gap analysis, AI-powered bullet point enhancements, and cross-platform web and mobile experiences.
 
+> 💡 **Interactive README Console**: Experience this documentation interactively directly in your terminal! Run `pnpm readme` to launch the terminal control center.
+
 ---
 
 ## 📋 Table of Contents
@@ -49,16 +51,18 @@ The platform relies on a **contract-first monorepo architecture** where an OpenA
 
 ## ⚡ Interactive Control Center
 
-For instant workspace navigation, testing, and operational tasks, run the interactive terminal control center:
+Make your README interactive! For instant workspace navigation, testing, and operational tasks, run the interactive terminal control center:
 
 ```bash
 pnpm readme
 ```
 
 ### Features of the Interactive CLI:
-- 📖 **Browse Project Architecture**: Explore product goals, tech stack selections, and inter-package dependencies.
-- ⚡ **Execute Orchestration Commands**: Run typechecking, build tasks, ORM database pushes, and client codegen directly from an interactive menu.
-- 🛠️ **Developer Notes**: Review contract-first standards, environment setup guides, and troubleshooting steps.
+- 🎯 **Project Overview & Product Vision**: Interactively explore product goals, core value propositions, and feature breakdowns.
+- 🛠️ **Technical Stack & Architecture**: Inspect frontend, backend, database, and AI SDK integration specs.
+- 🏗️ **Monorepo Architecture Map**: Understand inter-package dependencies (`artifacts/`, `lib/`, `scripts/`).
+- ⚡ **Command Orchestration Room**: Run typechecking, build tasks, ORM database pushes, client codegen, and dev servers directly from an interactive menu.
+- 💡 **Developer Gotchas & Notes**: Review contract-first standards, environment setup guides, and troubleshooting steps.
 
 ---
 

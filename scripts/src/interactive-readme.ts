@@ -102,24 +102,24 @@ async function showOverview() {
 async function showTechStack() {
   clearScreen();
   console.log(`${COLORS.fg.cyan}${COLORS.bright}=== Technical Stack Overview ===${COLORS.reset}\n`);
-  console.log(`${COLORS.fg.yellow}${COLORS.bright}Web Client Layout (mockup-sandbox):${COLORS.reset}`);
-  console.log(' - Modern responsive single-page layouts (built with HTML5, Tailwind-styled variables, and CSS components)');
-  console.log(' - Structured dynamic interaction scripts in vanilla JS (`js/app.js`, `js/navigation.js`, `js/animation.js`, `js/storage.js`)');
-  console.log(' - Responsive layouts using grid layouts, transition presets, and beautiful dark/light themes\n');
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}Web Client Layout (artifacts/mockup-sandbox):${COLORS.reset}`);
+  console.log(' - Vite, React 18, Tailwind CSS, Lucide Icons, and Radix UI');
+  console.log(' - Interactive resume upload, ATS score visualization, skill gap matching, and AI re-writer interface');
+  console.log(' - Responsive, accessible UI components with modern dark/light mode support\n');
 
   console.log(`${COLORS.fg.yellow}${COLORS.bright}Mobile Client Architecture (artifacts/mobile):${COLORS.reset}`);
-  console.log(' - Built using Expo, React Native, and TypeScript 5.9');
-  console.log(' - Native Navigation (Expo Router) for clean tab navigation between Home, Transactions, Budgets, AI, and Profile');
-  console.log(' - Reusable customized components: BudgetCard, StatCard, DonutChart, CategoryIcon, and TransactionItem\n');
+  console.log(' - Expo SDK, React Native, Expo Router, and TypeScript 5.9');
+  console.log(' - Cross-platform navigation (Expo Router) between Dashboard, Resume Library, ATS Matcher, AI Rewriter, and Profile');
+  console.log(' - Reusable domain components: ScoreCard, SkillBadge, BulletEditor, ResumePreview, and AnalyticsChart\n');
 
-  console.log(`${COLORS.fg.yellow}${COLORS.bright}Backend & API Services:${COLORS.reset}`);
-  console.log(' - API backend written with Express 5 (TypeScript) for routing, logging middleware, and controller handling');
-  console.log(' - PostgreSQL for secure data tracking, utilizing Drizzle ORM for type-safe query management and database push operations');
-  console.log(' - API contract specification managed globally using OpenAPI YAML and schema binding validation via Zod libraries\n');
+  console.log(`${COLORS.fg.yellow}${COLORS.bright}Backend & API Services (artifacts/api-server):${COLORS.reset}`);
+  console.log(' - High-performance Express 5 (TypeScript) backend with contract-first routing and middleware validation');
+  console.log(' - PostgreSQL database with Drizzle ORM for type-safe query building and migrations');
+  console.log(' - OpenAPI 3.1 contract specification (`lib/api-spec`) generating Zod runtime schemas and React Query hooks\n');
 
   console.log(`${COLORS.fg.yellow}${COLORS.bright}AI Integrations & Services:${COLORS.reset}`);
-  console.log(' - High-performance models (such as GPT-3.5 and GPT-4) integrated via OpenAI SDK');
-  console.log(' - Intelligent matching algorithms, automated classification, and semantic analytics models');
+  console.log(' - OpenAI API (GPT-4 / GPT-3.5) for automated resume parsing, ATS scoring, and bullet point enhancement');
+  console.log(' - Semantic skill gap analysis and automated resume tailoring suggestions');
   await waitForKey();
 }
 
